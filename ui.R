@@ -1,14 +1,21 @@
+# Define UI
 ui <- dashboardPage(
   skin = "blue",
   
-  dashboardHeader(title = "Delhi Air Quality Prediction"),
+  dashboardHeader(
+    title = "Delhi Air Quality Prediction",
+    tags$li(class = "dropdown",
+            actionButton("logout_btn", "Logout", class = "btn-danger"))
+  ),
   
   dashboardSidebar(
     sidebarMenu(
+      id = "tabs",
       menuItem("Introduction", tabName = "intro", icon = icon("info-circle")),
       menuItem("Predict AQI", tabName = "predict", icon = icon("chart-line")),
       menuItem("View Data", tabName = "data", icon = icon("table")),
-      menuItem("Analysis", tabName = "analysis", icon = icon("chart-area"))
+      menuItem("Analysis", tabName = "analysis", icon = icon("chart-area")),
+      menuItem("Login", tabName="login",icon = icon("sign-in-alt"))
     )
   ),
   
@@ -42,9 +49,21 @@ ui <- dashboardPage(
       tabItem(tabName = "intro",
               fluidPage(
                 tags$div(class = "splash",
-                         h1("Welcome to the Delhi Air Quality Predictor"),
-                         p("This application uses predictive modeling to forecast AQI levels and individual gas concentrations."),
-                         actionButton("start", "Get Started", class = "btn-primary")
+                         style = "background-image: url('https://images.moneycontrol.com/static-mcnews/2024/11/20241102025036_Delhi-AQI.jpg?impolicy=website&width=770&height=431'); 
+                              background-size: cover; 
+                              background-position: center; 
+                              background-repeat: no-repeat; 
+                              height: 100vh; 
+                              display: flex; 
+                              flex-direction: column; 
+                              align-items: center; 
+                              justify-content: center;",
+                         h1("Welcome to the Delhi Air Quality Predictor", style = "font-weight: bold;"),
+                         tags$p(tags$strong("The Delhi Air Quality Predictor is an interactive application that empowers users to predict air quality index (AQI) and pollutant concentrations.")),
+                         tags$p(tags$strong("It leverages advanced predictive modeling to provide accurate forecasts based on user-selected dates and times.")),
+                         tags$p(tags$strong("Dynamic visualizations make it easy to explore historical and forecasted trends, enhancing your understanding of air quality patterns.")),
+                         tags$p(tags$strong("This tool is designed for decision-making and awareness in addressing air pollution challenges.")),
+                         actionButton("start", "Get Started", class = "btn-primary", colors = "white")
                 )
               )
       ),
@@ -69,6 +88,16 @@ ui <- dashboardPage(
               fluidPage(
                 box(title = "Air Quality Data", width = 12,
                     dataTableOutput("data_table"))
+              )
+      ),
+      tabItem(tabName = "login",
+              fluidRow(
+                box(width = 12, title = "Login with Google", status = "primary", solidHeader = TRUE, 
+                    actionButton("login_btn", "Login with Google", icon = icon("google"))
+                ),
+                box(width = 12, title = "User Info", status = "info", solidHeader = TRUE,
+                    textOutput("user_info")
+                )
               )
       ),
       
