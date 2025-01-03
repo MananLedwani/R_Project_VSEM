@@ -15,6 +15,8 @@ At its core, the application aims to predict the Air Quality Index (AQI) based o
 
 **User-Friendly Interface:** The application features an intuitive design with a structured navigation system. From the home page introduction to the login functionality, every aspect of the user journey is crafted for convenience and accessibility.
 
+## Application's Usefulness in Empowering Society and Environment Through Data-Driven Air Quality Insights
+
 The Delhi Air Quality Index Predictor is more than a technological innovation; it is a societal asset. By predicting air quality, the application plays a crucial role in raising awareness and driving collective action against pollution. It provides individuals with actionable insights to reduce exposure to hazardous air, particularly in vulnerable populations such as children, the elderly, and individuals with pre-existing health conditions. Additionally, the application empowers policymakers and urban planners to develop targeted strategies for pollution mitigation, such as traffic control measures or industrial emission regulations.
 
 For the environment, the application contributes to sustainability efforts by highlighting areas requiring immediate attention. By facilitating data-driven decision-making, it helps optimize resource allocation and ensures that interventions are timely and effective.
